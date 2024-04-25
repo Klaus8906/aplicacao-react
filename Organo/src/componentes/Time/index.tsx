@@ -1,4 +1,3 @@
-import React from 'react'
 import { IColaborador } from '../../Compartilhado/Interfaces/IColaborador'
 import Colaborador from '../Colaborador'
 import './Time.css'
@@ -24,6 +23,7 @@ const Time = (props: TimeProps) => {
                         nome={colaborador.nome} 
                         cargo={colaborador.cargo} 
                         imagem={colaborador.imagem}
+                        data={colaborador.data}
                     /> )}
             </div>
         </section> 
