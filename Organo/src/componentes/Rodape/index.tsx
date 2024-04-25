@@ -1,6 +1,14 @@
 import './Rodape.css';
 
-const Rodape = (props) => {
+interface RodapeProps {
+    caminhoImagem: string
+    caminhoImagem2: string
+    caminhoImagem3: string
+    caminhoImagem4: string
+    texto: string
+}
+
+const Rodape = (props: RodapeProps) => {
     return (
         <footer className="footer">
             <div className="redes">
@@ -9,7 +17,7 @@ const Rodape = (props) => {
                 <img id="img3" src={props.caminhoImagem3} alt="ig" />
             </div>
             <img src={props.caminhoImagem4} alt="" />
-            <p id="escrito">Desenvolvido por Klaus.</p>
+            <p id="escrito">{props.texto}</p>
         </footer>
     )
 }

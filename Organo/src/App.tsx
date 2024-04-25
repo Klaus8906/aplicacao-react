@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import { IColaborador } from './Compartilhado/Interfaces/IColaborador';
 import Banner from './componentes/Banner';
 import Formulario from './componentes/Formulario';
 import Time from './componentes/Time';
-import Rodape from './componentes/Rodape'
+import Rodape from './componentes/Rodape';
 
 function App() {
 
@@ -44,26 +45,25 @@ function App() {
     }
   ]
 
-  const [colaboradores, setColaboradores] = useState([])
+  const [colaboradores, setColaboradores] = useState<IColaborador[]>([])
 
-  const aoNovoColaboradorAdicionado = (colaborador) => {
+  const aoNovoColaboradorAdicionado = (colaborador: IColaborador) => {
     setColaboradores([...colaboradores, colaborador])
   }
 
   return (
     <div className="App">
-      <Banner />
-      <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)} />
+      <Banner enderecoImagem='/imagens/banner.png'/>
+      <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
 
-      {times.map(time => <Time
-        key={time.nome}
-        nome={time.nome}
-        corPrimaria={time.corPrimaria}
-        corSecundaria={time.corSecundaria}
+      {times.map(time => <Time 
+        key={time.nome} 
+        nome={time.nome} 
+        corPrimaria={time.corPrimaria} 
+        corSecundaria={time.corSecundaria} 
         colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
-      />)}
-
-      <Rodape caminhoImagem={"/imagens/tw.png"} caminhoImagem2={"/imagens/fb.png"} caminhoImagem3={"/imagens/ig.png"} caminhoImagem4={"/imagens/logo.png"} texto="Desenvolvido por Klaus" />
+      />)}   
+      <Rodape caminhoImagem={'/imagens/tw.png'} caminhoImagem2={'/imagens/fb.png'} caminhoImagem3={'/imagens/ig.png'} caminhoImagem4={'/imagens/logo.png'} texto={'Feito por Klaus'} />
     </div>
   );
 }
