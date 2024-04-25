@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "classname": "^0.0.0",
+    "react-hook-form": "^7.51.3"
+  }
+}
